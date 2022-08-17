@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { useNavigate } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -20,11 +22,12 @@ const useStyles = makeStyles({
 export const ProductCard = ({ item }: any): any => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleViewProductDetail = (e: React.SyntheticEvent) => {
     const pid = e.currentTarget.id;
-    console.log(pid);
     dispatch(fetchProductDetail(pid));
+    navigate(`/products/${pid}`);
   };
 
   return (

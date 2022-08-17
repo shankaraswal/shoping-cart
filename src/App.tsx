@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 import Header from "./components/Common/Header";
 import ProductListing from "./components/PLP/ProductListing";
+import ProductDetail from "./components/PDP/ProductDetail";
 import Footer from "./components/Common/Footer";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Router>
         <Routes>
+          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/*" element={<ProductListing />} />
         </Routes>
       </Router>
